@@ -42,6 +42,9 @@ async def add_chat(request: Request, text:str="", userName:str="", location:str=
     with open("static/db/location.json",'r',encoding='utf-8') as f:
         locations = json.load(f)
     if text.strip() and userName.strip() and (location.strip() in locations):
+        for bad in ['ㅅㅂ', 'ㅂㅅ','병신','시발','섹']:
+            if bad in text:
+                return {"success":False}
         insert_table(text= text.strip(), location=location.strip(), user_name=userName.strip())
     else:
         return {"success":False}
