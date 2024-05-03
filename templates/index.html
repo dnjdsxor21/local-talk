@@ -20,7 +20,7 @@
                     <div class="text-4xl font-bold">
                         <a href="/">
                             <img src="{{ url_for('static', path='/img/chat-svgrepo-com.svg') }}" alt=LOGO class="max-w-10 inline"/>
-                            <span>SeoulTalk</span>
+                            <span>서울맛집Talk</span>
                         </a>
                     </div>
                     <button id="share-btn" class="text-lg p-2 border rounded-lg bg-green-500" type="button">
@@ -70,26 +70,39 @@
                         class="subway subway-green subway-green-active text-md font-bold border-2 rounded-2xl py-1 px-2 text-center">
                         왕십리
                     </button>
+                    <button name="Seoungsu" type="button"
+                        class="subway subway-green subway-green-active text-md font-bold border-2 rounded-2xl py-1 px-2 text-center">
+                        성수
+                    </button>
                     <button name="Hongdae" type="button"
                         class="subway subway-blue  text-md border-2 rounded-2xl py-1 px-2 text-center">
                         홍대
-                    </button>
-                    <button    name="Sinchon" type="button"
-                        class="subway subway-green  text-md border-2 rounded-2xl py-1 px-2 text-center">
-                        신촌
                     </button>
                     <button name="Gangnam" type="button"
                         class="subway subway-red  text-md border-2 rounded-2xl py-1 px-2 text-center">
                         강남
                     </button>
-                    <button name="Kundae" type="button"
-                        class="subway subway-green text-md border-2 border-green-500 rounded-2xl py-1 px-2 text-center">
-                        건대
+                    <button name="Itaewon" type="button"
+                        class="subway subway-red  text-md border-2 rounded-2xl py-1 px-2 text-center">
+                        이태원
                     </button>
                     <button name="Hyehwa" type="button"
                         class="subway subway-cyan  text-md border-2 rounded-2xl py-1 px-2 text-center">
                         혜화
                     </button>
+                    <button name="Sinsa" type="button"
+                        class="subway subway-red  text-md border-2 rounded-2xl py-1 px-2 text-center">
+                        신사
+                    </button>
+                    <button    name="Sinchon" type="button"
+                        class="subway subway-green  text-md border-2 rounded-2xl py-1 px-2 text-center">
+                        신촌
+                    </button>
+                    <button name="Kundae" type="button"
+                        class="subway subway-green text-md border-2 border-green-500 rounded-2xl py-1 px-2 text-center">
+                        건대
+                    </button>
+                    
                 </div>
                 <div id="chat-container" class="m-5 border rounded-lg">
                     <div id="chats" class="p-5 flex flex-col items-start gap-2 overflow-scroll h-80">
@@ -103,7 +116,7 @@
                        
                     </div>
                     <div id="input-form" class="m-2 border rounded-lg">
-                        <textarea id="text-area" class="w-full m-0.5" maxlength="100" placeholder="안녕하세요!"></textarea>
+                        <textarea id="text-area" class="w-full m-0.5" minlelength="3" maxlength="50" placeholder="안녕하세요!"></textarea>
                         <div
                             class="flex justify-between items-center w-full px-3 my-0.5">
                             <div id="char-count">0 / 300</div>

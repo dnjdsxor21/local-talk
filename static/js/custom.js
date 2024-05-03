@@ -116,7 +116,7 @@ sendButton.addEventListener('click', async function(e) {
 
 textarea.addEventListener('input', () => {
     const charCount = textarea.value.length;
-    charCountElement.textContent = `${charCount} / 100`;
+    charCountElement.textContent = `${charCount} / 50`;
 });
 
 
@@ -161,7 +161,7 @@ async function fetchData(q, resetFlag=true) {
     if (resetFlag===true){
         textarea.value = "";
         const charCount = textarea.value.length;
-        charCountElement.textContent = `${charCount} / 100`;
+        charCountElement.textContent = `${charCount} / 50`;
         chats.scrollTop = chats.scrollHeight;
     }
     return ""
