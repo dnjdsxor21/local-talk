@@ -172,7 +172,7 @@ async function fetchData(q, resetFlag=true) {
 
 function generateUUID() {
     var uuid = '';
-    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    var characters = '1234567ABCDEFGHKLMNOPRSTUVXYZ0123456789';
     for (var i = 0; i < 8; i++) {
         uuid += characters.charAt(Math.floor(Math.random() * characters.length));
     }
