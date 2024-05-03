@@ -28,7 +28,7 @@ async function updateLiveText() {
     }, 500); // CSS transition 시간과 일치시키세요.
     liveIndex += 1;
 
-    await fetchData(savedLocation);
+    await fetchData(savedLocation, false);
 }
 // setInterval(fetchData(savedLocation), 60000);
 downloadLiveText();
@@ -102,7 +102,6 @@ textarea.addEventListener('keypress', async function(e) {
         await fetch(`/post?text=${this.value}&userName=${savedUserName}&location=${savedLocation}`,
         {method:'POST'})
         await fetchData(savedLocation);
-        resetInput();
     }
 });
 
@@ -111,9 +110,8 @@ sendButton.addEventListener('click', async function(e) {
     // postData(userName=savedUserName, text=textarea.value, location=savedLocation);
     await fetch(`/post?text=${textarea.value}&userName=${savedUserName}&location=${savedLocation}`,
         {method:'POST'})
-
+        
     await fetchData(savedLocation);
-    resetInput();
 })
 
 textarea.addEventListener('input', () => {
@@ -137,7 +135,7 @@ function convertDate(isoDateString) {
     return formattedDate;
 }
 
-async function fetchData(q) {
+async function fetchData(q, resetFlag=true) {
     savedLocation = q;
     let innerHTML = "";
     await fetch(`/location?locationName=${q}`, {method:'GET', headers:{
@@ -160,15 +158,15 @@ async function fetchData(q) {
         });
     
     // console.log(innerHTML);
-    return ""
-}
-
-function resetInput() {
+    if (resetFlag===true){
     textarea.value = "";
     const charCount = textarea.value.length;
     charCountElement.textContent = `${charCount} / 100`;
     chats.scrollTop = chats.scrollHeight;
+    }
+    return ""
 }
+
 
     
 
