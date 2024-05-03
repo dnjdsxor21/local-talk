@@ -159,10 +159,10 @@ async function fetchData(q, resetFlag=true) {
     
     // console.log(innerHTML);
     if (resetFlag===true){
-    textarea.value = "";
-    const charCount = textarea.value.length;
-    charCountElement.textContent = `${charCount} / 100`;
-    chats.scrollTop = chats.scrollHeight;
+        textarea.value = "";
+        const charCount = textarea.value.length;
+        charCountElement.textContent = `${charCount} / 100`;
+        chats.scrollTop = chats.scrollHeight;
     }
     return ""
 }

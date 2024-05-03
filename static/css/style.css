@@ -3,11 +3,17 @@
     #main-screen {
         width: 100%;
     }
+    #chat-container {
+        margin:1px;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
     #main-screen {
         width: 100%;
+    }
+    #chat-container {
+        margin:1px;
     }
 }
 
@@ -15,11 +21,17 @@
     #main-screen {
         width: 768px;
     }
+    #chat-container {
+        margin:5px;
+    }
 }
 
 @media (min-width: 1200px) {
     #main-screen {
         width: 768px;
+    }
+    #chat-container {
+        margin:5px;
     }
 }
 

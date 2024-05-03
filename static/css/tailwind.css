@@ -614,6 +614,10 @@ video {
   height: 24rem;
 }
 
+.h-80 {
+  height: 20rem;
+}
+
 .w-6 {
   width: 1.5rem;
 }
@@ -694,6 +698,14 @@ video {
 
 .overflow-scroll {
   overflow: scroll;
+}
+
+.overflow-x-scroll {
+  overflow-x: scroll;
+}
+
+.overflow-y-scroll {
+  overflow-y: scroll;
 }
 
 .text-nowrap {
@@ -781,6 +793,10 @@ video {
 
 .p-5 {
   padding: 1.25rem;
+}
+
+.p-10 {
+  padding: 2.5rem;
 }
 
 .px-2 {
