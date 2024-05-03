@@ -1,0 +1,76 @@
+@media (max-width: 767px){
+	/* //모바일 */
+    #main-screen {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    #main-screen {
+        width: 100%;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    #main-screen {
+        width: 768px;
+    }
+}
+
+@media (min-width: 1200px) {
+    #main-screen {
+        width: 768px;
+    }
+}
+
+.subway-green {
+    text-decoration-line: none;
+    color: #000000;
+    font-weight: normal;
+    border-color: rgb(34 197 94);;
+}
+
+.subway-green:hover, .subway-green-active {
+    color: #ffffff;
+    font-weight: bold;
+    background-color: rgb(34 197 94);
+}
+
+.subway-blue {
+    text-decoration-line: none;
+    color: #000000;
+    font-weight: normal;
+    border-color: rgb(59 130 246);
+}
+
+.subway-blue:hover, .subway-blue-active {
+    color: #ffffff;
+    font-weight: bold;
+    background-color: rgb(59 130 246);
+}
+
+.subway-red {
+    text-decoration-line: none;
+    color: #000000;
+    font-weight: normal;
+    border-color: rgb(220 38 38);
+}
+
+.subway-red:hover, .subway-red-active {
+    color: #ffffff;
+    font-weight: bold;
+    background-color:rgb(220 38 38);
+}
+
+.subway-cyan {
+    text-decoration-line: none;
+    color: #000000;
+    font-weight: normal;
+    border-color:  rgb(103 232 249);
+}
+
+.subway-cyan:hover, .subway-cyan-active {
+    color: #ffffff;
+    font-weight: bold;
+    background-color: rgb(103 232 249);
+}

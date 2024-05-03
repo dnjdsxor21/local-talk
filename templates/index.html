@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SeoulTalk</title>
+
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <link href="{{ url_for('static', path='/css/style.css') }}" rel="stylesheet"> 
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="flex justify-center">
+        <div id="main-screen" class="border rounded-md">
+            <header id="header-area" class="border-b">
+                <div class="flex justify-between items-center p-4">
+                    <div class="text-4xl font-bold">
+                        <a href="/">SeoulTalk</a>
+                    </div>
+                    <button id="share-btn" class="text-lg p-2 border rounded-lg bg-green-500" type="button">
+                        Share
+                    </button>
+                </div>
+            </header>
+            <div id="event-area" class="p-4">
+                <div class="flex justify-between items-center mb-1">
+                    <div class="text-2xl font-bold">실시간 채팅</div>
+                    <div class="text-md text-slate-400 flex gap-2">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="w-6 h-6">
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        </svg>
+                        <div id="views">{{ views }} </div>
+                    </div>
+                </div>
+                <div
+                    class="border rounded-lg bg-slate-600 flex p-2 justify-start gap-3 items-center">
+                    <div
+                        class="text-md font-bold border border-black rounded-2xl py-1 px-2 text-center bg-red-500 text-white">
+                        LIVE
+                    </div>
+
+                    <div id="liveText" class="text-white mx-2 overflow-hidden animate-pulse">
+                        Welcome to the SeoulTalk
+                    </div>
+                </div>
+            </div>
+            <div id="chat-area" class="p-4 border-t">
+                <div id="chat-title" class="text-2xl font-bold my-1">왕십리톡</div>
+                <div id="subwayLocation" class="flex justify-start items-center gap-4 overflow-scroll text-nowrap">
+                    <button name="Wangsimni" type="button"
+                        class="subway subway-green subway-green-active text-md font-bold border-2 rounded-2xl py-1 px-2 text-center">
+                        왕십리
+                    </button>
+                    <button name="Hongdae" type="button"
+                        class="subway subway-blue  text-md border-2 rounded-2xl py-1 px-2 text-center">
+                        홍대입구
+                    </button>
+                    <button    name="Sinchon" type="button"
+                        class="subway subway-green  text-md border-2 rounded-2xl py-1 px-2 text-center">
+                        신촌
+                    </button>
+                    <button name="Gangnam" type="button"
+                        class="subway subway-red  text-md border-2 rounded-2xl py-1 px-2 text-center">
+                        강남
+                    </button>
+                    <button name="Kundae" type="button"
+                        class="subway subway-green text-md border-2 border-green-500 rounded-2xl py-1 px-2 text-center">
+                        건대입구
+                    </button>
+                    <button name="Hyehwa" type="button"
+                        class="subway subway-cyan  text-md border-2 rounded-2xl py-1 px-2 text-center">
+                        혜화
+                    </button>
+                </div>
+                <div class="m-5 border rounded-lg">
+                    <div
+                        id="chats"
+                        class="p-5 flex flex-col justify-center items-start gap-2 overflow-scroll h-96">
+                       
+                    </div>
+                    <div id="input-form" class="m-2 border rounded-lg">
+                        <textarea id="text-area" class="w-full m-0.5" maxlength="100" placeholder="안녕하세요!"></textarea>
+                        <div
+                            class="flex justify-between items-center w-full px-3 my-0.5">
+                            <div id="char-count">0 / 300</div>
+                            <input id="send-button" type="button" value="Send"
+                                class="border rounded-lg bg-green-300 py-1 px-2"></input>
+                                
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <script src="{{ url_for('static', path='/js/custom.js') }}"></script>
+    </body>
+</html>
