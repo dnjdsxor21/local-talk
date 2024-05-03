@@ -61,7 +61,7 @@ for (let i=0; i<subway.length;i++) {
     subway[i].addEventListener('click', function(e) {
         e.preventDefault();
         const chatTitle = document.querySelector('#chat-area #chat-title');
-        chatTitle.textContent = `${this.textContent.trim()}톡`;
+        chatTitle.textContent = `${this.textContent.trim()}맛집 톡`;
         document.querySelectorAll('.subway').forEach(item =>{
             item.classList.remove('subway-green-active', 'subway-blue-active', 'subway-red-active','subway-cyan-active');
         });
