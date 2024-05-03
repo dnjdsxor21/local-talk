@@ -178,9 +178,3 @@ function generateUUID() {
     }
     return uuid;
 }
-
-function refresh() {
-    const textarea = inputForm.querySelector('#text-area');
-    // textarea.value="";
-    return "";
-    }

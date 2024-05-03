@@ -5,19 +5,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
         <title>SeoulTalk</title>
-
+        
         <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/icon?family=Material+Icons" />
         <link href="{{ url_for('static', path='/css/style.css') }}" rel="stylesheet"> 
         <link href="{{ url_for('static', path='/css/tailwind.css') }}" rel="stylesheet"> 
+        <link rel="icon" href="{{ url_for('static', path='/img/chat-svgrepo-com.svg') }}" type="image/x-icon">
     </head>
     <body class="flex justify-center">
         <div id="main-screen" class="border rounded-md">
             <header id="header-area" class="border-b">
                 <div class="flex justify-between items-center p-4">
                     <div class="text-4xl font-bold">
-                        <a href="/">SeoulTalk</a>
+                        <a href="/">
+                            <img src="{{ url_for('static', path='/img/chat-svgrepo-com.svg') }}" alt=LOGO class="max-w-10 inline"/>
+                            <span>SeoulTalk</span>
+                        </a>
                     </div>
                     <button id="share-btn" class="text-lg p-2 border rounded-lg bg-green-500" type="button">
                         Share
