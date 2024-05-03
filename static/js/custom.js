@@ -1,32 +1,42 @@
 const liveText = document.querySelector('#liveText');
+let liveTexts;
+let liveIndex =0;
 // 계속 바뀌기
-async function updateLiveText() {
-    await fetch(`/location?locationName=*`, {method:'GET', headers:{
+async function downloadLiveText() {
+    liveTexts = await fetch(`/location?locationName=*`, {method:'GET', headers:{
         'Content-Type': 'application/json'
     }})
     .then(response => response.json())
     .then(data => {
         // 데이터의 마지막 5개 항목 중에서 랜덤하게 하나를 선택
-        const lastFive = data.slice(-8);
-        const randomIndex = Math.floor(Math.random() * lastFive.length);
-        const selectedText = lastFive[randomIndex]['text'];
-
-        // liveText 요소의 텍스트를 업데이트
-        liveText.textContent = selectedText;
-        liveText.style.opacity = 0;
-
-        // 잠시 후에 텍스트를 업데이트하고 opacity를 다시 1로 변경합니다.
-        setTimeout(() => {
-            liveText.textContent = selectedText;
-            liveText.style.opacity = 1;
-        }, 500); // CSS transition 시간과 일치시키세요.
+        return data.slice(-10);
     });
 }
-setInterval(updateLiveText, 6000,);
 
+async function updateLiveText() {
+    if (liveIndex >=10) {liveIndex = 0;}
+
+    const selectedText = liveTexts[liveIndex]['text'];
+        // liveText 요소의 텍스트를 업데이트
+    liveText.textContent = selectedText;
+    liveText.style.opacity = 0;
+
+    // 잠시 후에 텍스트를 업데이트하고 opacity를 다시 1로 변경합니다.
+    setTimeout(() => {
+        liveText.textContent = selectedText;
+        liveText.style.opacity = 1;
+    }, 500); // CSS transition 시간과 일치시키세요.
+    liveIndex += 1;
+
+    await fetchData(savedLocation);
+}
+// setInterval(fetchData(savedLocation), 60000);
+downloadLiveText();
+setInterval(updateLiveText, 8000);
+setInterval(downloadLiveText, 60000);
 let chats = document.getElementById('chats');
 
-let savedLocation = "";
+let savedLocation = "Wangsimni";
 let savedUserName = localStorage.getItem('user_name');
 
 const share = document.getElementById('share-btn');
@@ -100,6 +110,7 @@ sendButton.addEventListener('click', function(e) {
     // postData(userName=savedUserName, text=textarea.value, location=savedLocation);
     fetch(`/post?text=${textarea.value}&userName=${savedUserName}&location=${savedLocation}`,
         {method:'POST'})
+    c
     fetchData(savedLocation);
 })
 
@@ -143,10 +154,10 @@ async function fetchData(q) {
                 <div class="text-lg text-left p-1">${item["text"]}</div>
             </div>`;
             });
-                
+            chats.innerHTML = innerHTML; 
         });
+    
     // console.log(innerHTML);
-    chats.innerHTML = innerHTML;
     textarea.value = "";
     const charCount = textarea.value.length;
     charCountElement.textContent = `${charCount} / 100`;
