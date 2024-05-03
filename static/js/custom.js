@@ -102,6 +102,7 @@ textarea.addEventListener('keypress', async function(e) {
         await fetch(`/post?text=${this.value}&userName=${savedUserName}&location=${savedLocation}`,
         {method:'POST'})
         await fetchData(savedLocation);
+        resetInput();
     }
 });
 
@@ -110,8 +111,9 @@ sendButton.addEventListener('click', async function(e) {
     // postData(userName=savedUserName, text=textarea.value, location=savedLocation);
     await fetch(`/post?text=${textarea.value}&userName=${savedUserName}&location=${savedLocation}`,
         {method:'POST'})
-        
+
     await fetchData(savedLocation);
+    resetInput();
 })
 
 textarea.addEventListener('input', () => {
@@ -158,13 +160,15 @@ async function fetchData(q) {
         });
     
     // console.log(innerHTML);
+    return ""
+}
+
+function resetInput() {
     textarea.value = "";
     const charCount = textarea.value.length;
     charCountElement.textContent = `${charCount} / 100`;
     chats.scrollTop = chats.scrollHeight;
-    return ""
 }
-
 
     
 
