@@ -96,22 +96,22 @@ const inputForm = document.querySelector('#input-form');
 const textarea = inputForm.querySelector('#text-area');
 const sendButton = inputForm.querySelector('#send-button');
 const charCountElement = document.getElementById('char-count');
-textarea.addEventListener('keypress', function(e) {
+textarea.addEventListener('keypress', async function(e) {
     if (e.key === 'Enter' && !e.shiftKey) { // shift 키를 누른 상태에서 엔터를 누르면 기본동작 수행
         e.preventDefault(); // 폼이 자동으로 제출되는 것을 막습니다.
-        fetch(`/post?text=${this.value}&userName=${savedUserName}&location=${savedLocation}`,
+        await fetch(`/post?text=${this.value}&userName=${savedUserName}&location=${savedLocation}`,
         {method:'POST'})
-        fetchData(savedLocation);
+        await fetchData(savedLocation);
     }
 });
 
-sendButton.addEventListener('click', function(e) {
+sendButton.addEventListener('click', async function(e) {
     e.preventDefault();
     // postData(userName=savedUserName, text=textarea.value, location=savedLocation);
-    fetch(`/post?text=${textarea.value}&userName=${savedUserName}&location=${savedLocation}`,
+    await fetch(`/post?text=${textarea.value}&userName=${savedUserName}&location=${savedLocation}`,
         {method:'POST'})
-    c
-    fetchData(savedLocation);
+        
+    await fetchData(savedLocation);
 })
 
 textarea.addEventListener('input', () => {
